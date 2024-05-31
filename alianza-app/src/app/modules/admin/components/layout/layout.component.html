@@ -1,0 +1,13 @@
+<mat-drawer-container class="container">
+  <mat-drawer class="drawer" mode="side" opened>
+    <div class="logo"></div>
+    <mat-list class="menu">
+      <mat-list-item class="item-list" routerLink="/admin/clients">Clients</mat-list-item>
+      <mat-list-item class="item-list">Client look history</mat-list-item>
+      <mat-list-item class="item-list">Emergency PIN configuration</mat-list-item>
+      <mat-list-item class="item-list">Emergency PIN history</mat-list-item>
+    </mat-list>
+
+  </mat-drawer>
+  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+</mat-drawer-container>

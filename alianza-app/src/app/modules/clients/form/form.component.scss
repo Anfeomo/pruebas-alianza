@@ -1,0 +1,14 @@
+.content-dialog{
+  display: flex;
+  flex-direction: column;
+}
+.btn-container {
+  display: flex;
+  justify-content: end;
+  .btn-new-client {
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    margin: 15px;
+  }
+}

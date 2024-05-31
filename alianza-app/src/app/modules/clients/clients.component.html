@@ -1,0 +1,59 @@
+<div class="container">
+  <button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>add</mat-icon>new</button>
+  <button mat-raised-button color="primary"><mat-icon>ios_share</mat-icon>Export</button>
+</div>
+
+
+<div class="contaner-search">
+  <mat-form-field class="form-search">
+    <mat-label>Enter shared key</mat-label>
+    <input matInput type="search" value="" class="input-search">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="toggleAdvancedSearch()">Advanced Search</button>
+</div>
+<div *ngIf="showAdvancedSearch" class="container-new-client">
+ <app-form [title]="'Advanced Search'"></app-form>
+</div>
+
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- shared key -->
+  <ng-container matColumnDef="sharedkey">
+    <mat-header-cell *matHeaderCellDef> shared Key </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.sharedkey}} </mat-cell>
+  </ng-container>
+
+  <!-- business id Column -->
+  <ng-container matColumnDef="businessid">
+    <mat-header-cell *matHeaderCellDef> business ID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.businessId}} </mat-cell>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+  </ng-container>
+
+  <!-- phone Column -->
+  <ng-container matColumnDef="phone">
+    <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+  </ng-container>
+
+  <!-- data added Column -->
+  <ng-container matColumnDef="dateAdded">
+    <mat-header-cell *matHeaderCellDef> Data Added </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dateAdded | dateFormat}} </mat-cell>
+  </ng-container>
+
+  <!-- edit Column -->
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <mat-icon aria-hidden="false" aria-label="Edit register"
+        fontIcon="edit"></mat-icon> </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

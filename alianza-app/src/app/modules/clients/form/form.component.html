@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content class="content-dialog">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required>
+    @if (email.invalid) {
+    <mat-error>{{errorMessage}}</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a start date</mat-label>
+    <input matInput [matDatepicker]="pickerStartDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+    <mat-datepicker #pickerStartDate></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a End date</mat-label>
+    <input matInput [matDatepicker]="pickerEndDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+    <mat-datepicker #pickerEndDate></mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="btn-container">
+  <button mat-raised-button class="btn-new-client" color="primary">ok</button>
+</mat-dialog-actions>
